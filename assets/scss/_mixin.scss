@@ -1,0 +1,61 @@
+@import './variables.scss';
+
+@mixin button($color, $border, $background, $backgroundHover, $colorHover){
+    color: $color;
+    text-decoration: none;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    border: solid 3px $border;
+    background-color: $background;
+    transition: .5s;
+
+    &:hover{
+        background-color: $backgroundHover;
+        color: $colorHover;
+        transition: .5s;
+    }
+}
+
+@mixin percentage($backColor, $width, $contentPx, $numberPx, $color){
+    width: 100%;
+    height: 25px;
+    background: darken($white, 5.3%);
+    position: relative;
+
+    &:before{
+        content: '';
+        position: absolute;
+        height: 25px;
+        background: $backColor;
+        width: $width;
+    }
+    &:after{
+        content: $contentPx;
+        position: absolute;
+        right: $numberPx;
+        color: $color;
+        bottom: 0;
+        padding-right: 1%;
+    }
+}
+
+@mixin scrollbar ($width, $height, $thumbColor, $thumbActiveColor){
+    ::-webkit-scrollbar {
+        width: $width;
+        height: $height;
+        background: $white;
+    }
+      
+    ::-webkit-scrollbar-button {
+        display: none;
+    }
+      
+    ::-webkit-scrollbar-thumb {
+        background: $thumbColor;
+    }
+    ::-webkit-scrollbar-thumb:active{
+        background-color: $thumbActiveColor;
+    }
+}

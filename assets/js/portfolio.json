@@ -1,0 +1,58 @@
+[
+  {
+    "index": 0,
+    "link": "https://www.girafeparis.com/",
+    "picture": "assets/img/portfolio/img00.jpg",
+    "alt": "Première image du portfolio",
+    "category": "Patterns"
+  },
+  {
+    "index": 1,
+    "link": "http://www.jimcarreyonline.com/",
+    "picture": "assets/img/portfolio/img01.jpg",
+    "alt": "Deuxième image du portfolio",
+    "category": "Themes"
+  },
+  {
+    "index": 2,
+    "link": "https://mightyexpedite.com/",
+    "picture": "assets/img/portfolio/img02.jpg",
+    "alt": "Troisième image du portfolio",
+    "category": "Themes"
+  },
+  {
+    "index": 3,
+    "link": "https://www.svgrepo.com/",
+    "picture": "assets/img/portfolio/img03.jpg",
+    "alt": "Quatrième image du portfolio",
+    "category": "Icon"
+  },
+  {
+    "index": 4,
+    "link": "https://www.pexels.com/",
+    "picture": "assets/img/portfolio/img04.jpg",
+    "alt": "Cinquième image du portfolio",
+    "category": "Patterns"
+  },
+  {
+    "index": 5,
+    "link": "https://graphiste.com/blog/mockup-gratuit",
+    "picture": "assets/img/portfolio/img05.jpg",
+    "alt": "Sixième image du portfolio",
+    "category": "Mockups"
+  },
+  {
+    "index": 6,
+    "link": "https://getuikit.com/",
+    "picture": "assets/img/portfolio/img06.jpg",
+    "alt": "Septième image du portfolio",
+    "category": "UIKits"
+  },
+  {
+    "index": 7,
+    "link": "https://www.burn-controllers.com/",
+    "picture": "assets/img/portfolio/img07.jpg",
+    "alt": "Huitième image du portfolio",
+    "category": "Patterns"
+  }
+]

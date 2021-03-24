@@ -1,0 +1,26 @@
+// Variables colors
+    $green: #2ecc71 ;
+    $grey: #252e30 ;
+    $white: #ffffff;
+
+// Font size
+    // nav
+        $navigation: 16px;
+    // content
+        $head: 60px; // h1
+        $title: 30px; // h2
+        $subhead: 22px; // h3
+        $text: 18px;
+        $others: 14px; // text in addition in education & experience part & in the footer
+
+        // slider
+            $cite: 24px;
+    
+//font familly 
+    *{
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    $titleFont: 'Montserrat';
+    $textFont: 'Roboto';
