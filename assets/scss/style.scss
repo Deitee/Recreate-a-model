@@ -262,7 +262,110 @@ body{
         }
         #slider{
             background-color: darken($white, 5.3%);
+            .slider { // fieldset
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 0;
+                margin: 0;
+                border: 0;
+                margin-inline: 0;
+                padding-block: 0;
+                padding-inline: 0;
+                min-inline-size: 0;
+                padding-bottom: 5%;
+                legend {
+                    display: none;
+                }
+                input {
+                    display: none;
+                }
+                .slides {
+                    width: 300%;
+                    display: flex;
+                    .slide {
+                        width: 100%;
+                        text-align: center;
+                        transition: 2s;
+                        cite{
+                            font-style: italic;
+                            text-align: center;
+                            color: lighten($grey, 16.6%);
+
+                            &:before, &:after{
+                                content: '"';
+                            }
+                        }
+                        h3 {
+                            color: $grey;
+                            padding-top: 3%;
+                        }
+                    }
+                }
+
+                .navigation-manual {
+                    @extend %absolute;
+                    top: auto;
+                    display: flex;
+                    justify-content: center;
+                    z-index: 2;
+
+                    .manual-btn {
+                        border: 1px solid $green;
+                        padding: 5px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: 1s;
+
+                        &:not(:last-child) {
+                            margin-right: 20px;
+                        }
+
+                        &:hover {
+                            background: $green;
+                        }
+                    }
+                }
+
+                .navigation-auto {
+                    @extend %absolute;
+                    top: auto;
+                    display: flex;
+                    justify-content: center;
+                    z-index: 1;
+
+                    div {
+                        border: 1px solid transparent;
+                        padding: 5px;
+                        border-radius: 10px;
+                        transition: 1s;
+
+                        &:not(:last-child) {
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+
+            #radio1:checked~.slides .slide {
+                margin-left: 0;
+            }
+
+            #radio2:checked~.slides .slide {
+                transform: translateX(-100%);
+            }
+
+            #radio3:checked~.slides .slide {
+                transform: translateX(-200%);
+            }
+
+            #radio1:checked~.navigation-auto .auto-btn1,
+            #radio2:checked~.navigation-auto .auto-btn2,
+            #radio3:checked~.navigation-auto .auto-btn3 {
+                background: $green;
+            }
         }
+
         #portfolio{
             text-align: center;
             > div{

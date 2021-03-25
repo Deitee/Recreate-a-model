@@ -13,7 +13,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-body main #portfolio > div div:not(:first-child) a:hover::after, body main #portfolio > div div:not(:first-child) a::after, body main #portfolio > div div:not(:first-child) a::before, body div#slider-intro img {
+body main #portfolio > div div:not(:first-child) a:hover::after, body main #portfolio > div div:not(:first-child) a::after, body main #portfolio > div div:not(:first-child) a::before, body main #slider .slider .navigation-auto, body main #slider .slider .navigation-manual, body div#slider-intro img {
   position: absolute;
   top: 0;
   left: 0;
@@ -366,6 +366,94 @@ body main .presentation > div:last-child > div > p {
 }
 body main #slider {
   background-color: #f1f1f1;
+}
+body main #slider .slider {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  min-inline-size: 0;
+  padding-bottom: 5%;
+}
+body main #slider .slider legend {
+  display: none;
+}
+body main #slider .slider input, body main #slider .slider #contact div:last-child form textarea, body main #contact div:last-child form #slider .slider textarea {
+  display: none;
+}
+body main #slider .slider .slides {
+  width: 300%;
+  display: flex;
+}
+body main #slider .slider .slides .slide {
+  width: 100%;
+  text-align: center;
+  transition: 2s;
+}
+body main #slider .slider .slides .slide cite {
+  font-style: italic;
+  text-align: center;
+  color: #4a5c60;
+}
+body main #slider .slider .slides .slide cite:before, body main #slider .slider .slides .slide cite:after {
+  content: '"';
+}
+body main #slider .slider .slides .slide h3 {
+  color: #252e30;
+  padding-top: 3%;
+}
+body main #slider .slider .navigation-manual {
+  top: auto;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+body main #slider .slider .navigation-manual .manual-btn {
+  border: 1px solid #2ecc71;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+body main #slider .slider .navigation-manual .manual-btn:not(:last-child) {
+  margin-right: 20px;
+}
+body main #slider .slider .navigation-manual .manual-btn:hover {
+  background: #2ecc71;
+}
+body main #slider .slider .navigation-auto {
+  top: auto;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+body main #slider .slider .navigation-auto div {
+  border: 1px solid transparent;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+body main #slider .slider .navigation-auto div:not(:last-child) {
+  margin-right: 20px;
+}
+body main #slider #radio1:checked ~ .slides .slide {
+  margin-left: 0;
+}
+body main #slider #radio2:checked ~ .slides .slide {
+  transform: translateX(-100%);
+}
+body main #slider #radio3:checked ~ .slides .slide {
+  transform: translateX(-200%);
+}
+body main #slider #radio1:checked ~ .navigation-auto .auto-btn1,
+body main #slider #radio2:checked ~ .navigation-auto .auto-btn2,
+body main #slider #radio3:checked ~ .navigation-auto .auto-btn3 {
+  background: #2ecc71;
 }
 body main #portfolio {
   text-align: center;
