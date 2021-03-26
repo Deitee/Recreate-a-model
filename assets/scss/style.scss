@@ -347,23 +347,35 @@ body{
                 }
             }
 
-            #radio1:checked~.slides .slide {
-                margin-left: 0;
+            // #radio1:checked~.slides .slide {
+            //     margin-left: 0;
+            // }
+
+            // #radio2:checked~.slides .slide {
+            //     transform: translateX(-100%);
+            // }
+
+            // #radio3:checked~.slides .slide {
+            //      transform: translateX(-200%);
+            // }
+            @for $i from 1 to 4 {
+                #radio#{$i}:checked~.slides .slide {
+                    @if ($i == 1){
+                        margin-left: 0;
+                    } @else{
+                        transform: translateX($i*(-100)+100%);
+                    }
+                }  
+                #radio#{$i}:checked~.navigation-auto .auto-btn#{$i}{
+                    background: $green;
+                }
             }
 
-            #radio2:checked~.slides .slide {
-                transform: translateX(-100%);
-            }
-
-            #radio3:checked~.slides .slide {
-                transform: translateX(-200%);
-            }
-
-            #radio1:checked~.navigation-auto .auto-btn1,
-            #radio2:checked~.navigation-auto .auto-btn2,
-            #radio3:checked~.navigation-auto .auto-btn3 {
-                background: $green;
-            }
+            // #radio1:checked~.navigation-auto .auto-btn1,
+            // #radio2:checked~.navigation-auto .auto-btn2,
+            // #radio3:checked~.navigation-auto .auto-btn3 {
+            //     background: $green;
+            // }
         }
 
         #portfolio{

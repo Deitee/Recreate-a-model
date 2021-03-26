@@ -444,14 +444,18 @@ body main #slider .slider .navigation-auto div:not(:last-child) {
 body main #slider #radio1:checked ~ .slides .slide {
   margin-left: 0;
 }
+body main #slider #radio1:checked ~ .navigation-auto .auto-btn1 {
+  background: #2ecc71;
+}
 body main #slider #radio2:checked ~ .slides .slide {
   transform: translateX(-100%);
+}
+body main #slider #radio2:checked ~ .navigation-auto .auto-btn2 {
+  background: #2ecc71;
 }
 body main #slider #radio3:checked ~ .slides .slide {
   transform: translateX(-200%);
 }
-body main #slider #radio1:checked ~ .navigation-auto .auto-btn1,
-body main #slider #radio2:checked ~ .navigation-auto .auto-btn2,
 body main #slider #radio3:checked ~ .navigation-auto .auto-btn3 {
   background: #2ecc71;
 }
