@@ -15,6 +15,7 @@
     outline: none;
     font-family: 'Roboto', sans-serif;
     font-size: $text;
+    transition: .5s;
 
     a:hover, input[type=submit]{
         cursor: url('../img/pictos/cursor.png'), auto;
@@ -43,27 +44,68 @@ body{
         position: relative;
         @extend %flexCenter;
         flex-direction: column;
-        img{
-            min-width: 100%;
+        .slider { // fieldset
+            width: 100%;
+            height: 100vh;
+            @extend %slider;
+            .slides {
+                width: 100%;
+                height: 300vh;
+                .slide {
+                    width: 100%;
+                    height: 100vh;
+                    transition: 1s ease-out;
+                    background: url('../img/intro.jpg') no-repeat center;
+                    background-size: cover;
+                }
+            }
+            .navigation-manual {
+                @include navManual($white, 0, 20px);
+
+            }
+            .navigation-auto {
+                @include navAuto(0, 20px);
+            }
+            .navigation-manual, .navigation-auto{
+                bottom: 5%;
+                right: 5%;
+                left: auto;
+                flex-direction: column;
+            }
+            @for $i from 1 to 4 {
+                #radio0#{$i}:checked~.slides .slide {
+                    @if ($i == 1){
+                        margin-bottom: 0;
+                    } @else{
+                        transform: translateY($i*(-100)+100vh);
+                    }
+                }  
+                #radio0#{$i}:checked~.navigation-auto .auto-btn0#{$i}{
+                    background: $white;
+                }
+            }
+        }
+        > div{
             @extend %absolute;
-            z-index: 0;
-        }
-        h1{
-            font-size: $head;
-            font-family: $titleFont;
-            color: $white;
-            border-top: solid 2px $white;
-            border-bottom: solid 2px $white;
+            width: 60%;
+            height: max-content;
+            margin: auto;
             text-align: center;
-            margin-left: 5%;
-            margin-right: 5%;
-            position: relative;
-            z-index: 1;
-        }
-        a{
-            @include button($white, $white, transparent, $white, $grey);
-            margin-top: 3%;
-            z-index: 1;
+            h1{
+                font-size: $head;
+                font-family: $titleFont;
+                color: $white;
+                border-top: solid 2px $white;
+                border-bottom: solid 2px $white;
+                text-align: center;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            a{
+                @include button($white, $white, transparent, $white, $grey);
+                position: relative;
+                top: 70px;
+            }
         }
     }
     nav{
@@ -85,6 +127,7 @@ body{
                 padding-top: 2%;
                 padding-bottom: 2%;
                 font-size: $title;
+                font-weight: 900;
             }
             h2{
                 color: $green;
@@ -146,11 +189,12 @@ body{
             background: darken($white, 5.3%);
             display: flex;
             > div:first-child{
-                > img{
-                    height: 100%;
-                }
+                width: 30%;
+                background: url('../img/me.jpg') no-repeat center;
+                background-size: cover;
             }
             > div:last-child{
+                width: 70%;
                 > div{
                     padding-top: 2%;
                     display: flex;
@@ -159,6 +203,9 @@ body{
                         width: 45%;
                         padding-top: 3%;
                         display: flex;
+                        &:nth-child(odd){
+                            margin-right: 10%;
+                        }
                         > div:first-child{
                             padding-right: 5%;
                         }
@@ -201,6 +248,10 @@ body{
                             }
                         }
                     }
+                    a{
+                        @include button($green, $green, transparent, $green, $white);
+                        display: none;
+                    }
                 }
             }
         }
@@ -213,6 +264,8 @@ body{
             }
             a{
                 @include button($green, $green, transparent, $green, $white);
+                position: relative;
+                z-index: 1;
             }
             span{
                 width: 40px;
@@ -263,23 +316,9 @@ body{
         #slider{
             background-color: darken($white, 5.3%);
             .slider { // fieldset
-                position: relative;
                 border-radius: 10px;
                 overflow: hidden;
-                padding: 0;
-                margin: 0;
-                border: 0;
-                margin-inline: 0;
-                padding-block: 0;
-                padding-inline: 0;
-                min-inline-size: 0;
-                padding-bottom: 5%;
-                legend {
-                    display: none;
-                }
-                input {
-                    display: none;
-                }
+                @extend %slider;
                 .slides {
                     width: 300%;
                     display: flex;
@@ -304,60 +343,12 @@ body{
                 }
 
                 .navigation-manual {
-                    @extend %absolute;
-                    top: auto;
-                    display: flex;
-                    justify-content: center;
-                    z-index: 2;
-
-                    .manual-btn {
-                        border: 1px solid $green;
-                        padding: 5px;
-                        border-radius: 10px;
-                        cursor: pointer;
-                        transition: 1s;
-
-                        &:not(:last-child) {
-                            margin-right: 20px;
-                        }
-
-                        &:hover {
-                            background: $green;
-                        }
-                    }
+                    @include navManual($green, 20px, 0);
                 }
-
                 .navigation-auto {
-                    @extend %absolute;
-                    top: auto;
-                    display: flex;
-                    justify-content: center;
-                    z-index: 1;
-
-                    div {
-                        border: 1px solid transparent;
-                        padding: 5px;
-                        border-radius: 10px;
-                        transition: 1s;
-
-                        &:not(:last-child) {
-                            margin-right: 20px;
-                        }
-                    }
+                    @include navAuto(20px, 0);
                 }
             }
-
-            // #radio1:checked~.slides .slide {
-            //     margin-left: 0;
-            // }
-
-            // #radio2:checked~.slides .slide {
-            //     transform: translateX(-100%);
-            // }
-
-            // #radio3:checked~.slides .slide {
-            //      transform: translateX(-200%);
-            // }
             @for $i from 1 to 4 {
                 #radio#{$i}:checked~.slides .slide {
                     @if ($i == 1){
@@ -370,12 +361,6 @@ body{
                     background: $green;
                 }
             }
-
-            // #radio1:checked~.navigation-auto .auto-btn1,
-            // #radio2:checked~.navigation-auto .auto-btn2,
-            // #radio3:checked~.navigation-auto .auto-btn3 {
-            //     background: $green;
-            // }
         }
 
         #portfolio{
@@ -572,6 +557,113 @@ body{
                         filter:saturate(100);
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px){
+    body{
+        main{
+            > .addPaddingPart{
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            #aboutme{
+                position: relative;
+                > div:first-child{
+                    width: 25vh;
+                    height: 25vh;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 5vh;
+                    left: 5vh;
+                }
+                > div:last-child{
+                    width: 100%;
+                    > div:first-child{
+                        padding-left: 35vh;
+                    }
+                }
+            }
+            #portfolio{
+                > div{
+                    div:first-child{
+                        width: 100%;
+                        div{
+                            padding-left: 5%;
+                            padding-top: 0;
+                            padding-bottom: 2%;
+                        }
+                    }
+                    div:not(:first-child){
+                        width: 48%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 720px){
+    *{
+        text-align: justify;
+    }
+    body{
+        main{
+            #introduction{
+                flex-wrap: wrap;
+                div{
+                    width: 45%;
+                    &:last-child{
+                        padding-top: 2%;
+                    }
+                }
+            }
+            #aboutme{
+                > div:first-child{
+                    top: 15%;
+                }
+            }
+            #skills{
+                flex-direction: column;
+                > div{
+                    width: 100%;
+                    &:first-child{
+                        p{
+                            padding-bottom: 0;
+                        }
+                        a{
+                            display: none;
+                        }
+                    }
+                    &:last-child{
+                        >div:nth-child(4){
+                            padding-bottom: 5%;
+                        }
+                        a{
+                            display: block;
+                            margin: auto;
+                            width: max-content;
+                        }
+                    }
+                }
+            }
+            .presentation{
+                flex-direction: column;
+                >div{
+                    width: 100%;
+                }
+            }
+            #contact{
+                flex-direction: column;
+                >div{
+                    width: 100%;
+                }
+            }
+        }
+        footer{
+            p{
+                text-align: center;
             }
         }
     }

@@ -13,7 +13,7 @@
   font-family: "Montserrat", sans-serif;
 }
 
-body main #portfolio > div div:not(:first-child) a:hover::after, body main #portfolio > div div:not(:first-child) a::after, body main #portfolio > div div:not(:first-child) a::before, body main #slider .slider .navigation-auto, body main #slider .slider .navigation-manual, body div#slider-intro img {
+body main #portfolio > div div:not(:first-child) a:hover::after, body main #portfolio > div div:not(:first-child) a::after, body main #portfolio > div div:not(:first-child) a::before, body main #slider .slider .navigation-auto, body main #slider .slider .navigation-manual, body div#slider-intro > div, body div#slider-intro .slider .navigation-auto, body div#slider-intro .slider .navigation-manual {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,6 +27,61 @@ body footer div a, body main #portfolio > div div:not(:first-child) a:hover::aft
   align-items: center;
 }
 
+body main #slider .slider, body div#slider-intro .slider {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  min-inline-size: 0;
+  padding-bottom: 5%;
+}
+body main #slider .slider legend, body div#slider-intro .slider legend {
+  display: none;
+}
+body main #slider .slider input, body main #slider .slider #contact div:last-child form textarea, body main #contact div:last-child form #slider .slider textarea, body div#slider-intro .slider input, body div#slider-intro .slider main #contact div:last-child form textarea, body main #contact div:last-child form div#slider-intro .slider textarea {
+  display: none;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+body main #portfolio > div div:not(:first-child) a:hover::after, body main #portfolio > div div:not(:first-child) a::after, body main #portfolio > div div:not(:first-child) a::before, body main #slider .slider .navigation-auto, body main #slider .slider .navigation-manual, body div#slider-intro > div, body div#slider-intro .slider .navigation-auto, body div#slider-intro .slider .navigation-manual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+body footer div a, body main #portfolio > div div:not(:first-child) a:hover::after, body main #portfolio > div div:not(:first-child) a::after, body div#slider-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body main #slider .slider, body div#slider-intro .slider {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  margin-inline: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  min-inline-size: 0;
+  padding-bottom: 5%;
+}
+body main #slider .slider legend, body div#slider-intro .slider legend {
+  display: none;
+}
+body main #slider .slider input, body main #slider .slider #contact div:last-child form textarea, body main #contact div:last-child form #slider .slider textarea, body div#slider-intro .slider input, body div#slider-intro .slider main #contact div:last-child form textarea, body main #contact div:last-child form div#slider-intro .slider textarea {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +89,7 @@ body footer div a, body main #portfolio > div div:not(:first-child) a:hover::aft
   outline: none;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
+  transition: 0.5s;
 }
 * a:hover, * input[type=submit], * body main #contact div:last-child form textarea[type=submit], body main #contact div:last-child form * textarea[type=submit] {
   cursor: url("../img/pictos/cursor.png"), auto;
@@ -76,11 +132,88 @@ body div#slider-intro {
   position: relative;
   flex-direction: column;
 }
-body div#slider-intro img {
-  min-width: 100%;
-  z-index: 0;
+body div#slider-intro .slider {
+  width: 100%;
+  height: 100vh;
 }
-body div#slider-intro h1 {
+body div#slider-intro .slider .slides {
+  width: 100%;
+  height: 300vh;
+}
+body div#slider-intro .slider .slides .slide {
+  width: 100%;
+  height: 100vh;
+  transition: 1s ease-out;
+  background: url("../img/intro.jpg") no-repeat center;
+  background-size: cover;
+}
+body div#slider-intro .slider .navigation-manual {
+  top: auto;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+body div#slider-intro .slider .navigation-manual .manual-btn {
+  border: 1px solid #ffffff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+body div#slider-intro .slider .navigation-manual .manual-btn:not(:last-child) {
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+body div#slider-intro .slider .navigation-manual .manual-btn:hover {
+  background: #ffffff;
+}
+body div#slider-intro .slider .navigation-auto {
+  top: auto;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+body div#slider-intro .slider .navigation-auto div {
+  border: 1px solid transparent;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+body div#slider-intro .slider .navigation-auto div:not(:last-child) {
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+body div#slider-intro .slider .navigation-manual, body div#slider-intro .slider .navigation-auto {
+  bottom: 5%;
+  right: 5%;
+  left: auto;
+  flex-direction: column;
+}
+body div#slider-intro .slider #radio01:checked ~ .slides .slide {
+  margin-bottom: 0;
+}
+body div#slider-intro .slider #radio01:checked ~ .navigation-auto .auto-btn01 {
+  background: #ffffff;
+}
+body div#slider-intro .slider #radio02:checked ~ .slides .slide {
+  transform: translateY(-100vh);
+}
+body div#slider-intro .slider #radio02:checked ~ .navigation-auto .auto-btn02 {
+  background: #ffffff;
+}
+body div#slider-intro .slider #radio03:checked ~ .slides .slide {
+  transform: translateY(-200vh);
+}
+body div#slider-intro .slider #radio03:checked ~ .navigation-auto .auto-btn03 {
+  background: #ffffff;
+}
+body div#slider-intro > div {
+  width: 60%;
+  height: max-content;
+  margin: auto;
+  text-align: center;
+}
+body div#slider-intro > div h1 {
   font-size: 60px;
   font-family: "Montserrat";
   color: #ffffff;
@@ -89,10 +222,8 @@ body div#slider-intro h1 {
   text-align: center;
   margin-left: 5%;
   margin-right: 5%;
-  position: relative;
-  z-index: 1;
 }
-body div#slider-intro a {
+body div#slider-intro > div a {
   color: #ffffff;
   text-decoration: none;
   padding-top: 1vw;
@@ -102,10 +233,10 @@ body div#slider-intro a {
   border: solid 3px #ffffff;
   background-color: transparent;
   transition: 0.5s;
-  margin-top: 3%;
-  z-index: 1;
+  position: relative;
+  top: 70px;
 }
-body div#slider-intro a:hover {
+body div#slider-intro > div a:hover {
   background-color: #ffffff;
   color: #252e30;
   transition: 0.5s;
@@ -131,6 +262,7 @@ body nav div > span {
   padding-top: 2%;
   padding-bottom: 2%;
   font-size: 30px;
+  font-weight: 900;
 }
 body nav div h2 {
   color: #2ecc71;
@@ -187,8 +319,13 @@ body main #aboutme {
   background: #f1f1f1;
   display: flex;
 }
-body main #aboutme > div:first-child > img {
-  height: 100%;
+body main #aboutme > div:first-child {
+  width: 30%;
+  background: url("../img/me.jpg") no-repeat center;
+  background-size: cover;
+}
+body main #aboutme > div:last-child {
+  width: 70%;
 }
 body main #aboutme > div:last-child > div {
   padding-top: 2%;
@@ -199,6 +336,9 @@ body main #aboutme > div:last-child > div > div {
   width: 45%;
   padding-top: 3%;
   display: flex;
+}
+body main #aboutme > div:last-child > div > div:nth-child(odd) {
+  margin-right: 10%;
 }
 body main #aboutme > div:last-child > div > div > div:first-child {
   padding-right: 5%;
@@ -298,6 +438,23 @@ body main #skills > div:last-child > div:nth-child(4) div:after {
   bottom: 0;
   padding-right: 1%;
 }
+body main #skills > div:last-child a {
+  color: #2ecc71;
+  text-decoration: none;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  border: solid 3px #2ecc71;
+  background-color: transparent;
+  transition: 0.5s;
+  display: none;
+}
+body main #skills > div:last-child a:hover {
+  background-color: #2ecc71;
+  color: #ffffff;
+  transition: 0.5s;
+}
 body main #resume {
   background: #f1f1f1;
   text-align: center;
@@ -316,6 +473,8 @@ body main #resume a {
   border: solid 3px #2ecc71;
   background-color: transparent;
   transition: 0.5s;
+  position: relative;
+  z-index: 1;
 }
 body main #resume a:hover {
   background-color: #2ecc71;
@@ -368,23 +527,8 @@ body main #slider {
   background-color: #f1f1f1;
 }
 body main #slider .slider {
-  position: relative;
   border-radius: 10px;
   overflow: hidden;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  margin-inline: 0;
-  padding-block: 0;
-  padding-inline: 0;
-  min-inline-size: 0;
-  padding-bottom: 5%;
-}
-body main #slider .slider legend {
-  display: none;
-}
-body main #slider .slider input, body main #slider .slider #contact div:last-child form textarea, body main #contact div:last-child form #slider .slider textarea {
-  display: none;
 }
 body main #slider .slider .slides {
   width: 300%;
@@ -422,6 +566,7 @@ body main #slider .slider .navigation-manual .manual-btn {
 }
 body main #slider .slider .navigation-manual .manual-btn:not(:last-child) {
   margin-right: 20px;
+  margin-bottom: 0;
 }
 body main #slider .slider .navigation-manual .manual-btn:hover {
   background: #2ecc71;
@@ -440,6 +585,7 @@ body main #slider .slider .navigation-auto div {
 }
 body main #slider .slider .navigation-auto div:not(:last-child) {
   margin-right: 20px;
+  margin-bottom: 0;
 }
 body main #slider #radio1:checked ~ .slides .slide {
   margin-left: 0;
@@ -639,6 +785,94 @@ body footer div a:hover {
 }
 body footer div a:hover img {
   filter: saturate(100);
+}
+
+@media screen and (max-width: 960px) {
+  body main > .addPaddingPart {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  body main #aboutme {
+    position: relative;
+  }
+  body main #aboutme > div:first-child {
+    width: 25vh;
+    height: 25vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 5vh;
+    left: 5vh;
+  }
+  body main #aboutme > div:last-child {
+    width: 100%;
+  }
+  body main #aboutme > div:last-child > div:first-child {
+    padding-left: 35vh;
+  }
+  body main #portfolio > div div:first-child {
+    width: 100%;
+  }
+  body main #portfolio > div div:first-child div {
+    padding-left: 5%;
+    padding-top: 0;
+    padding-bottom: 2%;
+  }
+  body main #portfolio > div div:not(:first-child) {
+    width: 48%;
+  }
+}
+@media screen and (max-width: 720px) {
+  * {
+    text-align: justify;
+  }
+
+  body main #introduction {
+    flex-wrap: wrap;
+  }
+  body main #introduction div {
+    width: 45%;
+  }
+  body main #introduction div:last-child {
+    padding-top: 2%;
+  }
+  body main #aboutme > div:first-child {
+    top: 15%;
+  }
+  body main #skills {
+    flex-direction: column;
+  }
+  body main #skills > div {
+    width: 100%;
+  }
+  body main #skills > div:first-child p {
+    padding-bottom: 0;
+  }
+  body main #skills > div:first-child a {
+    display: none;
+  }
+  body main #skills > div:last-child > div:nth-child(4) {
+    padding-bottom: 5%;
+  }
+  body main #skills > div:last-child a {
+    display: block;
+    margin: auto;
+    width: max-content;
+  }
+  body main .presentation {
+    flex-direction: column;
+  }
+  body main .presentation > div {
+    width: 100%;
+  }
+  body main #contact {
+    flex-direction: column;
+  }
+  body main #contact > div {
+    width: 100%;
+  }
+  body footer p {
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

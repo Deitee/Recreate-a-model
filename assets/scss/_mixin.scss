@@ -1,6 +1,52 @@
-@import './variables.scss';
+@import './_variables.scss';
+@import './_placeholders.scss';
 
-@mixin button($color, $border, $background, $backgroundHover, $colorHover){
+
+@mixin navManual($color, $marginRight, $marginBottom) {
+    @extend %absolute;
+    top: auto;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+
+    .manual-btn {
+        border: 1px solid $color;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+
+        &:not(:last-child) {
+            margin-right: $marginRight;
+            margin-bottom: $marginBottom;
+        }
+
+        &:hover {
+            background: $color;
+        }
+    }
+}
+@mixin navAuto($marginRight, $marginBottom) {
+    @extend %absolute;
+    top: auto;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+
+    div {
+        border: 1px solid transparent;
+        padding: 5px;
+        border-radius: 10px;
+        transition: 1s;
+
+        &:not(:last-child) {
+            margin-right: $marginRight;
+            margin-bottom: $marginBottom;
+        }
+    }
+}
+
+@mixin button($color, $border, $background, $backgroundHover, $colorHover) {
     color: $color;
     text-decoration: none;
     padding-top: 1vw;
@@ -11,27 +57,28 @@
     background-color: $background;
     transition: .5s;
 
-    &:hover{
+    &:hover {
         background-color: $backgroundHover;
         color: $colorHover;
         transition: .5s;
     }
 }
 
-@mixin percentage($backColor, $width, $contentPx, $numberPx, $color){
+@mixin percentage($backColor, $width, $contentPx, $numberPx, $color) {
     width: 100%;
     height: 25px;
     background: darken($white, 5.3%);
     position: relative;
 
-    &:before{
+    &:before {
         content: '';
         position: absolute;
         height: 25px;
         background: $backColor;
         width: $width;
     }
-    &:after{
+
+    &:after {
         content: $contentPx;
         position: absolute;
         right: $numberPx;
@@ -41,21 +88,22 @@
     }
 }
 
-@mixin scrollbar ($width, $height, $thumbColor, $thumbActiveColor){
+@mixin scrollbar ($width, $height, $thumbColor, $thumbActiveColor) {
     ::-webkit-scrollbar {
         width: $width;
         height: $height;
         background: $white;
     }
-      
+
     ::-webkit-scrollbar-button {
         display: none;
     }
-      
+
     ::-webkit-scrollbar-thumb {
         background: $thumbColor;
     }
-    ::-webkit-scrollbar-thumb:active{
+
+    ::-webkit-scrollbar-thumb:active {
         background-color: $thumbActiveColor;
     }
 }

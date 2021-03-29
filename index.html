@@ -15,9 +15,42 @@
 </head>
 <body>
     <div id="slider-intro">
-        <img src="assets/img/intro.jpg" alt="Fond d'écran slider">
-        <h1>WEB & GRAPHIC DESIGNER</h1>
-        <a href="#aboutme">LEARN MORE</a>
+        <fieldset class="slider">
+            <legend>Groupe de input type radio qui controlle le slider</legend>
+
+            <input type="radio" name="radio-btn" id="radio01" checked>
+            <input type="radio" name="radio-btn" id="radio02">
+            <input type="radio" name="radio-btn" id="radio03">
+            
+            <div class="slides">
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+            </div>
+
+            <div class="navigation-auto">
+                <div class="auto-btn01"></div>
+                <div class="auto-btn02"></div>
+                <div class="auto-btn03"></div>
+            </div>
+
+
+            <div class="navigation-manual">
+                <label for="radio01" class="manual-btn">
+                    <span style="display: none;">label</span>
+                </label>
+                <label for="radio02" class="manual-btn">
+                    <span style="display: none;">label</span>
+                </label>
+                <label for="radio03" class="manual-btn">
+                    <span style="display: none;">label</span>
+                </label>
+            </div>
+        </fieldset>
+        <div>
+            <h1>WEB & GRAPHIC DESIGNER</h1>
+            <a href="#aboutme">LEARN MORE</a>
+        </div>
     </div>
     <nav>
         <div>
@@ -67,7 +100,6 @@
         </div>
         <section id="aboutme">
             <div>
-                <img src="assets/img/me.jpg" alt="Photo de moi">
             </div>
             <div class="addPaddingPart">
                 <div>
@@ -147,6 +179,7 @@
                     <h3>PHP / MYSQL</h3>
                     <div></div>
                 </div>
+                <a href="#contact">CONTACT ME</a>
             </div>
         </section>
         <section id="resume" class="addPaddingPart">

@@ -1,6 +1,6 @@
-@import './variables.scss';
+@import './_variables.scss';
 
-%absolute{
+%absolute {
     position: absolute;
     top: 0;
     left: 0;
@@ -8,8 +8,28 @@
     bottom: 0;
 }
 
-%flexCenter{
+%flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+%slider {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    margin-inline: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    min-inline-size: 0;
+    padding-bottom: 5%;
+
+    legend {
+        display: none;
+    }
+
+    input {
+        display: none;
+    }
 }
