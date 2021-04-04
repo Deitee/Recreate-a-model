@@ -83,6 +83,11 @@ body main #slider .slider input, body main #slider .slider #contact div:last-chi
 }
 
 * {
+  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -90,6 +95,7 @@ body main #slider .slider input, body main #slider .slider #contact div:last-chi
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   transition: 0.5s;
+  scroll-behavior: smooth;
 }
 * a:hover, * input[type=submit], * body main #contact div:last-child form textarea[type=submit], body main #contact div:last-child form * textarea[type=submit] {
   cursor: url("../img/pictos/cursor.png"), auto;
@@ -110,16 +116,13 @@ body main #slider .slider input, body main #slider .slider #contact div:last-chi
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background-color: #4a5c60;
-}
-
-html {
-  scroll-behavior: smooth;
+  background-color: #4b5d61;
 }
 
 html, body {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body > div:last-child:not(#slider-intro) {
@@ -241,6 +244,9 @@ body div#slider-intro > div a:hover {
   color: #252e30;
   transition: 0.5s;
 }
+body div#burger {
+  display: none;
+}
 body nav {
   width: 100%;
   background: #252e30;
@@ -256,7 +262,7 @@ body nav div {
 }
 body nav div > span {
   color: #ffffff;
-  background: #4a5c60;
+  background: #4b5d61;
   padding-left: 4%;
   padding-right: 4%;
   padding-top: 2%;
@@ -275,17 +281,19 @@ body nav div h2 span {
   color: #ffffff;
 }
 body nav ul {
-  width: 50%;
+  width: 55%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 body nav ul li {
   list-style: none;
+  padding-left: 1%;
 }
 body nav ul li a {
   color: #ffffff;
   text-decoration: none;
+  white-space: nowrap;
 }
 body nav ul li a:hover {
   color: #2ecc71;
@@ -316,7 +324,7 @@ body main #introduction div {
   width: 30%;
 }
 body main #aboutme {
-  background: #f1f1f1;
+  background: #f2f2f2;
   display: flex;
 }
 body main #aboutme > div:first-child {
@@ -456,7 +464,7 @@ body main #skills > div:last-child a:hover {
   transition: 0.5s;
 }
 body main #resume {
-  background: #f1f1f1;
+  background: #f2f2f2;
   text-align: center;
   position: relative;
 }
@@ -484,7 +492,7 @@ body main #resume a:hover {
 body main #resume span {
   width: 40px;
   height: 40px;
-  background: #f1f1f1;
+  background: #f2f2f2;
   transform: rotate(45deg);
   position: absolute;
   bottom: -20px;
@@ -504,7 +512,7 @@ body main .presentation > div:last-child > div {
 }
 body main .presentation > div:last-child > div div {
   padding-bottom: 5%;
-  border-bottom: solid 1px #f1f1f1;
+  border-bottom: solid 1px #f2f2f2;
 }
 body main .presentation > div:last-child > div div p {
   padding-top: 2%;
@@ -524,7 +532,7 @@ body main .presentation > div:last-child > div > p {
   padding-top: 5%;
 }
 body main #slider {
-  background-color: #f1f1f1;
+  background-color: #f2f2f2;
 }
 body main #slider .slider {
   border-radius: 10px;
@@ -542,7 +550,7 @@ body main #slider .slider .slides .slide {
 body main #slider .slider .slides .slide cite {
   font-style: italic;
   text-align: center;
-  color: #4a5c60;
+  color: #4b5d61;
 }
 body main #slider .slider .slides .slide cite:before, body main #slider .slider .slides .slide cite:after {
   content: '"';
@@ -640,7 +648,7 @@ body main #portfolio > div div:first-child div label {
   list-style: none;
   padding-top: 1%;
   padding-bottom: 1%;
-  color: #a5a5a5;
+  color: #a6a6a6;
   cursor: url("../img/pictos/cursor.png"), auto;
   font-weight: 100;
 }
@@ -682,13 +690,13 @@ body main #portfolio > div div:not(:first-child) a img {
   height: 100%;
 }
 body main #contact {
-  background: #4a5c60;
+  background: #4b5d61;
   display: flex;
   justify-content: space-around;
 }
 body main #contact div {
   width: 45%;
-  color: #a5a5a5;
+  color: #a6a6a6;
 }
 body main #contact div:first-child h2 {
   color: #ffffff;
@@ -698,7 +706,7 @@ body main #contact div:first-child span {
 }
 body main #contact div:first-child a {
   text-decoration: none;
-  color: #a5a5a5;
+  color: #a6a6a6;
 }
 body main #contact div:first-child a:hover {
   text-decoration: underline;
@@ -713,11 +721,11 @@ body main #contact div:last-child form label {
   color: #ffffff;
 }
 body main #contact div:last-child form label span {
-  color: #a5a5a5;
+  color: #a6a6a6;
 }
 body main #contact div:last-child form input:not([type=submit]), body main #contact div:last-child form textarea:not([type=submit]) {
   height: 40px;
-  background: #6b858b;
+  background: #6c868c;
   border: none;
   caret-color: #ffffff;
   color: #252e30;
@@ -753,41 +761,61 @@ body footer {
   text-align: center;
 }
 body footer p {
-  color: #a5a5a5;
+  color: #a6a6a6;
   padding-bottom: 2%;
 }
 body footer div {
-  width: 30%;
+  width: 100%;
   margin: auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 body footer div a {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   text-decoration: none;
   border-radius: 50%;
-  background: #51656a;
+  background: #4b5d61;
   overflow: hidden;
   transition: 0.5s;
 }
-body footer div a img {
-  max-width: 15px;
-  max-height: 15px;
+body footer div a:not(:first-child), body footer div a:not(:last-child) {
+  margin-left: 5px;
+  margin-right: 5px;
 }
-body footer div a:nth-child(4) img {
-  max-width: 100%;
-  max-height: 100%;
+body footer div a svg {
+  min-width: 25px;
+  min-height: 25px;
+  fill: #252e30;
+}
+body footer div a:nth-child(5) svg {
+  max-width: 10px;
+  max-height: 10px;
+  padding: 2px;
 }
 body footer div a:hover {
   transform: rotate(360deg);
   transition: 0.5s;
 }
-body footer div a:hover img {
-  filter: saturate(100);
+body footer div a:hover svg {
+  fill: #ffffff;
 }
 
 @media screen and (max-width: 960px) {
+  body {
+    font-size: 16px;
+  }
+  body nav {
+    justify-content: space-around;
+  }
+  body nav ul {
+    width: 75%;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+  body nav ul li {
+    padding-left: 3%;
+  }
   body main > .addPaddingPart {
     padding-left: 5%;
     padding-right: 5%;
@@ -822,6 +850,24 @@ body footer div a:hover img {
   }
 }
 @media screen and (max-width: 720px) {
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: #ffffff;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: transparent;
+  }
+
   * {
     text-align: justify;
   }
@@ -837,6 +883,29 @@ body footer div a:hover img {
   }
   body main #aboutme > div:first-child {
     top: 15%;
+  }
+  body main #aboutme > div:last-child > div:first-child {
+    padding-left: 30vh;
+  }
+  body main #aboutme > div:last-child > div > div {
+    width: 100%;
+    margin: 0 !important;
+  }
+  body main #aboutme > div:last-child > div > div h3 {
+    padding-bottom: 0;
+  }
+  body main #aboutme > div:last-child > div > div:not(:first-child) {
+    padding-top: 5%;
+  }
+  body main #aboutme > div:last-child > div > div:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  body main #aboutme > div:last-child > div > div:nth-child(even) h3 {
+    text-align: right;
+  }
+  body main #aboutme > div:last-child > div > div:nth-child(even) > div:first-child {
+    padding-right: 0;
+    padding-left: 3%;
   }
   body main #skills {
     flex-direction: column;
@@ -864,6 +933,9 @@ body footer div a:hover img {
   body main .presentation > div {
     width: 100%;
   }
+  body main #slider .slider .slides .slide h3 {
+    text-align: center;
+  }
   body main #contact {
     flex-direction: column;
   }
@@ -872,6 +944,126 @@ body footer div a:hover img {
   }
   body footer p {
     text-align: center;
+  }
+}
+@media screen and (max-width: 540px) {
+  body div#slider-intro > div {
+    width: 90%;
+  }
+  body div#slider-intro > div h1 {
+    margin: 0;
+    font-size: 50px;
+  }
+  body div#burger {
+    position: fixed;
+    top: 2%;
+    right: 2%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+  }
+  body div#burger.drop span {
+    margin: 0;
+    transition: 0.5s;
+    border: solid 1px #252e30;
+    background-color: #ffffff;
+  }
+  body div#burger.drop span:first-child {
+    transform: rotate(45deg);
+  }
+  body div#burger.drop span:last-child {
+    transform: rotate(-45deg);
+    margin: 0;
+    width: 40px;
+  }
+  body div#burger span {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    background-color: #252e30;
+    border: solid 1px #ffffff;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+  }
+  body div#burger span:last-child {
+    width: 20px;
+    margin-bottom: 0;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  body nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 2%;
+    z-index: 10;
+    transition: 0.5s;
+  }
+  body nav.drop {
+    left: 0;
+    transition: 0.5s;
+  }
+  body nav div {
+    width: 100%;
+    justify-content: center;
+  }
+  body nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: auto;
+  }
+  body nav ul li {
+    padding: 0;
+    width: 100%;
+  }
+  body nav ul li a {
+    display: block;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+  }
+  body nav ul li a:hover {
+    background: #4b5d61;
+  }
+  body main #introduction div {
+    width: 90%;
+    margin: auto;
+  }
+  body main #introduction div:not(:first-child) {
+    padding-top: 2%;
+  }
+  body main #aboutme {
+    flex-direction: column;
+  }
+  body main #aboutme > div:first-child {
+    position: relative;
+    margin: auto;
+    margin-top: 5%;
+    left: 0;
+    right: 0;
+  }
+  body main #aboutme > div:last-child > div:first-child {
+    padding: 0;
+  }
+  body main #aboutme > div:last-child > div:last-child {
+    padding-top: 10%;
+  }
+  body main .presentation {
+    padding-top: 10%;
+  }
+  body main #portfolio > div div:not(:first-child) {
+    width: 100%;
   }
 }
 

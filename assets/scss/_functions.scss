@@ -1,0 +1,23 @@
+@import './_variables.scss';
+
+@function lightnessColor($color){
+    $lightness: lightness($color);
+    $round: round($lightness);
+
+    @if ( 15 <= $round and $round <= 20 ){
+        @return lighten($grey, $round);
+    } 
+    @else if ( 30 <= $round and $round <= 33 ){
+        @return lighten($grey, $round);
+    }
+    @else if ( 34 <= $round and $round <= 37 ){
+        @return darken($white, $round);
+    } 
+    @else if ( 90 <= $round and $round <= 100 ){
+        $result: 100-$round;
+        @return darken($white, $result);
+    }  
+    @else{
+        @return $color;
+    }
+}

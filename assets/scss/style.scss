@@ -3,9 +3,9 @@
 @import './_placeholders.scss';
 @import './_functions.scss';
 
-// @warn lightness(#252e30);
-// @warn lightness(#4b5456);
-// @warn lightness(#575c5d);
+//@warn lightness(#252e30);
+//@warn lightness(#4b5456);
+//@warn lightness(#575c5d);
 // @warn lightness(#f2f2f1);
 
 *{
@@ -16,20 +16,18 @@
     font-family: 'Roboto', sans-serif;
     font-size: $text;
     transition: .5s;
-
+    scroll-behavior: smooth;
     a:hover, input[type=submit]{
         cursor: url('../img/pictos/cursor.png'), auto;
     }
 }
 
-@include scrollbar(10px, 10px, $grey, lighten($grey, 16.6%));
+@include scrollbar(10px, 10px, $grey, lightnessColor($otherGrey));
 
-html{
-    scroll-behavior: smooth;
-}
 html, body{
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 body{
     > div:last-child{
@@ -108,6 +106,9 @@ body{
             }
         }
     }
+    div#burger{
+        display: none;
+    }
     nav{
         width: 100%;
         background: $grey;
@@ -121,7 +122,7 @@ body{
             align-items: center;
             > span{
                 color: $white;
-                background: lighten($grey, 16.6%);
+                background: lightnessColor($otherGrey);
                 padding-left: 4%;
                 padding-right: 4%;
                 padding-top: 2%;
@@ -141,15 +142,17 @@ body{
             }
         }
         ul{
-            width: 50%;
+            width: 55%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             li{
                 list-style: none;
+                padding-left: 1%;
                 a{
                     color: $white;
                     text-decoration: none;
+                    white-space: nowrap;
                     &:hover{
                         color: $green;
                     }
@@ -186,7 +189,7 @@ body{
              }
         }
         #aboutme{
-            background: darken($white, 5.3%);
+            background: lightnessColor($otherWhite);
             display: flex;
             > div:first-child{
                 width: 30%;
@@ -256,7 +259,7 @@ body{
             }
         }
         #resume{
-            background: darken($white, 5.3%);
+            background: lightnessColor($otherWhite);
             text-align: center;
             position: relative;
             p{
@@ -270,7 +273,7 @@ body{
             span{
                 width: 40px;
                 height: 40px;
-                background: darken($white, 5.3%);
+                background: lightnessColor($otherWhite);
                 transform: rotate(45deg);
                 position: absolute;
                 bottom: -20px;
@@ -290,7 +293,7 @@ body{
                         padding-top: 10%;
                         div{
                             padding-bottom: 5%;
-                            border-bottom: solid 1px darken($white, 5.3%);
+                            border-bottom: solid 1px lightnessColor($otherWhite);
                             p{
                                 padding-top: 2%;
                                 padding-bottom: 2%;
@@ -314,7 +317,7 @@ body{
             }
         }
         #slider{
-            background-color: darken($white, 5.3%);
+            background-color: lightnessColor($otherWhite);
             .slider { // fieldset
                 border-radius: 10px;
                 overflow: hidden;
@@ -329,7 +332,7 @@ body{
                         cite{
                             font-style: italic;
                             text-align: center;
-                            color: lighten($grey, 16.6%);
+                            color: lightnessColor($otherGrey);
 
                             &:before, &:after{
                                 content: '"';
@@ -395,7 +398,7 @@ body{
                                 list-style: none;
                                 padding-top: 1%;
                                 padding-bottom: 1%;
-                                color: darken($white, 35.3%);
+                                color: lightnessColor($otherLightBlueDark);
                                 cursor: url('../img/pictos/cursor.png'), auto;
                                 font-weight: 100;
                                 &:hover{
@@ -458,12 +461,12 @@ body{
             }
         }
         #contact{
-            background: lighten($grey, 16.6%);
+            background: lightnessColor($otherGrey);
             display: flex;
             justify-content: space-around;
             div{
                 width: 45%;
-                color: darken($white, 35.3%);
+                color: lightnessColor($otherLightBlueDark);
                 &:first-child{
                     h2{
                         color: $white;
@@ -473,7 +476,7 @@ body{
                     }
                     a{
                         text-decoration: none;
-                        color: darken($white, 35.3%);
+                        color: lightnessColor($otherLightBlueDark);
                         &:hover{
                             text-decoration: underline;
                         }
@@ -488,13 +491,13 @@ body{
                             padding-top: 5%;
                             color: $white;
                             span{
-                                color: darken($white, 35.3%);
+                                color: lightnessColor($otherLightBlueDark);
                             }
                         }
                         input{
                             &:not([type=submit]){
                                 height: 40px;
-                                background: lighten($grey, 31.6%);
+                                background: lightnessColor($otherLightBlue);
                                 border: none;
                                 caret-color: $white;
                                 color: $grey;
@@ -523,38 +526,44 @@ body{
         padding-bottom: 3%;
         text-align: center;
         p{
-            color: darken($white, 35.3%);
+            color: lightnessColor($otherLightBlueDark);
             padding-bottom: 2%;
         }
         div{
-            width: 30%;
+            width: 100%;
             margin: auto;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             a{
-                width: 25px;
-                height: 25px;
+                width: 30px;
+                height: 30px;
                 text-decoration: none;
                 border-radius: 50%;
-                background: lighten($grey, 20%);
+                background: lightnessColor($otherGrey);
                 @extend %flexCenter;
                 overflow: hidden;
                 transition: .5s;
-                img{
-                    max-width: 15px;
-                    max-height: 15px;
+                &:not(:first-child), &:not(:last-child){
+                    margin-left: 5px;
+                    margin-right: 5px;
                 }
-                &:nth-child(4){
-                    img{
-                        max-width: 100%;
-                        max-height: 100%;
+                svg{
+                    min-width: 25px;
+                    min-height: 25px;
+                    fill: $grey;
+                }
+                &:nth-child(5){
+                    svg{
+                        max-width: 10px;
+                        max-height: 10px;
+                        padding: 2px;
                     }
                 }
                 &:hover{
                     transform: rotate(360deg);
                     transition: .5s;
-                    img{
-                        filter:saturate(100);
+                    svg{
+                        fill: $white;
                     }
                 }
             }
@@ -563,7 +572,20 @@ body{
 }
 
 @media screen and (max-width: 960px){
+    $text: 16px;
     body{
+        font-size: $text;
+        nav{
+            justify-content: space-around;
+            ul{
+                width: 75%;
+                flex-wrap: wrap;
+                justify-content: left;
+                li{
+                    padding-left: 3%;
+                }
+            }
+        }
         main{
             > .addPaddingPart{
                 padding-left: 5%;
@@ -605,6 +627,7 @@ body{
     }
 }
 @media screen and (max-width: 720px){
+    @include scrollbar(0px, 0px, transparent, transparent);
     *{
         text-align: justify;
     }
@@ -622,6 +645,33 @@ body{
             #aboutme{
                 > div:first-child{
                     top: 15%;
+                }
+                >div:last-child{
+                    >div:first-child{
+                        padding-left: 30vh;
+                    }
+                    >div{
+                        >div{
+                            width: 100%;
+                            margin: 0!important;
+                            h3{
+                                padding-bottom: 0;
+                            }
+                            &:not(:first-child){
+                                padding-top: 5%;
+                            }
+                            &:nth-child(even){
+                                flex-direction: row-reverse;
+                                h3{
+                                    text-align: right;
+                                }
+                                >div:first-child{
+                                    padding-right: 0;
+                                    padding-left: 3%;
+                                }
+                            }
+                        }
+                    }
                 }
             }
             #skills{
@@ -654,6 +704,17 @@ body{
                     width: 100%;
                 }
             }
+            #slider{
+                .slider{
+                    .slides{
+                        .slide{
+                            h3{
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
             #contact{
                 flex-direction: column;
                 >div{
@@ -664,6 +725,144 @@ body{
         footer{
             p{
                 text-align: center;
+            }
+        }
+    }
+}
+@media screen and (max-width: 540px){
+    $head: 50px;
+    body{
+        div#slider-intro{
+            >div{
+                width: 90%;
+                h1{
+                    margin: 0;
+                    font-size: $head;
+                }
+            }
+        }
+        div#burger{
+            position: fixed;
+            top: 2%;
+            right: 2%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 15;
+            &.drop{
+                span{
+                    margin: 0;
+                    transition: .5s;
+                    border: solid 1px $grey;
+                    background-color: $white;
+                    &:first-child{
+                        transform: rotate(45deg);
+                    }
+                    &:last-child{
+                        transform: rotate(-45deg);
+                        margin: 0;
+                        width: 40px;
+                    }
+                }
+            }
+            span{
+                position: absolute;
+                width: 40px;
+                height: 5px;
+                background-color: $grey;
+                border: solid 1px $white;
+                border-radius: 50px;
+                margin-bottom: 10px;
+                transition: .5s;
+
+                &:last-child{
+                    width: 20px;
+                    margin-bottom: 0;
+                    margin-left: 20px;
+                    margin-top: 10px;
+                }
+            }
+        }
+        nav{
+            position: fixed;
+            top: 0;
+            left: -100%;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 2%;
+            z-index: 10;
+            transition: .5s;
+            &.drop{
+                left: 0;
+                transition: .5s;
+            }
+            div{
+                width: 100%;
+                justify-content: center;
+            }
+            ul{
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                margin: auto;
+                li{
+                    padding: 0;
+                    width: 100%;
+                    a{
+                        display: block;
+                        padding-top: 5%;
+                        padding-bottom: 5%;
+                        padding-left: 5%;
+                        &:hover{
+                            background: lightnessColor($otherGrey);
+                        }
+                    }
+                }
+            }
+        }
+        main{
+            #introduction{
+                div{
+                    width: 90%;
+                    margin: auto;
+                    &:not(:first-child){
+                        padding-top: 2%;
+                    }
+                }
+            }
+            #aboutme{
+                flex-direction: column;
+                >div:first-child{
+                    position: relative;
+                    margin: auto;
+                    margin-top: 5%;
+                    left: 0;
+                    right: 0;
+                }
+                >div:last-child{
+                    >div:first-child{
+                        padding: 0;
+                    }
+                    >div:last-child{
+                        padding-top: 10%;
+                    }
+                }
+            }
+            .presentation{
+                padding-top: 10%;
+            }
+            #portfolio{
+                >div{
+                    div:not(:first-child){
+                        width: 100%;
+                    }
+                }
             }
         }
     }
